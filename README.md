@@ -1,0 +1,2 @@
+# famsplit
+Expense tracking application
