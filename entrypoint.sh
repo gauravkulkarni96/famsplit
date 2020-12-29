@@ -1,6 +1,7 @@
 #!/bin/bash
 
 python manage.py migrate        # Apply database migrations
+python manage.py initadmin      # Create admin user if no user exists
 
 # directory for gunicorn logs and django app logs
 rm -rf $DOCKYARD_SRVPROJ/logs
