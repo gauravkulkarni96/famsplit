@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  db:
+    image: mysql/mysql-server:5.7
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./secrets/famsplit_mysql.env
+  web:
+    image: gauravkulkarni96/famsplit:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/src/code/famsplit
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: >
+      /bin/bash -c "
+        while ! nc -z db 3306;
+        do
+          echo sleeping;
+          sleep 1;
+        done;
+        echo Connected!;"
