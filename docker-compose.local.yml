@@ -9,6 +9,9 @@ services:
       - ./secrets/famsplit_mysql.env
   web:
     image: gauravkulkarni96/famsplit:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/src/code/famsplit
     ports:

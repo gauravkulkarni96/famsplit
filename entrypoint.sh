@@ -1,5 +1,11 @@
 #!/bin/bash
 
+while ! nc -z db 3306;
+do
+    echo "waiting for db to come up" ;
+    sleep 1;
+done;
+    echo Connected!;
 python manage.py migrate        # Apply database migrations
 python manage.py initadmin      # Create admin user if no user exists
 

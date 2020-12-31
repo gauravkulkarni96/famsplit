@@ -13,7 +13,7 @@ ENV DOCKYARD_SRVPROJ=$DOCKYARD_SRVHOME/$DOCKYARD_SRC
 WORKDIR $DOCKYARD_SRVPROJ
 
 RUN apt-get update
-RUN apt-get install python3-dev default-libmysqlclient-dev gcc  -y
+RUN apt-get install python3-dev default-libmysqlclient-dev gcc netcat  -y
 # Copy just requirements.txt
 COPY requirements.txt /tmp/requirements.txt
 
