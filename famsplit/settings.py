@@ -96,10 +96,11 @@ REST_FRAMEWORK = {
     ],
 }
 
-JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
-    'JWT_ALLOW_REFRESH': True,
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=2),
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=2),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
 }
 
 # Password validation
@@ -134,7 +135,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -142,3 +142,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
+
+SUPPORTED_CURRENCIES = (
+        ('INR','inr'),
+        ('USD','usd'),
+    )
