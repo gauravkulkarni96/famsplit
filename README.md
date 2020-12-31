@@ -7,21 +7,21 @@ The application is dockerized. Running it brings up 2 containers - application a
    ```
    version: '3'
 
-    services:
-      db:
-        image: mysql/mysql-server:5.7
-        ports:
-          - "3306:3306"
-        environment:
-          - MYSQL_ROOT_PASSWORD=joeydoesntsharefood
-          - MYSQL_DATABASE=famsplit
-          - MYSQL_ROOT_HOST=%
-      web:
-        image: gauravkulkarni96/famsplit:latest
-        ports:
-          - "8000:8000"
-        depends_on:
-          - db
+   services:
+     db:
+       image: mysql/mysql-server:5.7
+       ports:
+         - "3306:3306"
+       environment:
+         - MYSQL_ROOT_PASSWORD=joeydoesntsharefood
+         - MYSQL_DATABASE=famsplit
+         - MYSQL_ROOT_HOST=%
+     web:
+       image: gauravkulkarni96/famsplit:latest
+       ports:
+         - "8000:8000"
+       depends_on:
+         - db
    ```
   
 2. run `docker-compose up`
