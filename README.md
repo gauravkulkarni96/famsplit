@@ -3,11 +3,30 @@ Expense tracking application
 
 ## Setting up application
 The application is dockerized. Running it brings up 2 containers - application and mysql
-1. clone the repository
-    ```sh
-    git clone https://github.com/gauravkulkarni96/famsplit.git
-    ```
-2. `cd` into the repository folder and run `docker-compose up`
+1. Copy `docker-compose.yml` file
+   ```
+   version: '3'
+
+    services:
+      db:
+        image: mysql/mysql-server:5.7
+        ports:
+          - "3306:3306"
+        environment:
+          - MYSQL_ROOT_PASSWORD=joeydoesntsharefood
+          - MYSQL_DATABASE=famsplit
+          - MYSQL_ROOT_HOST=%
+      web:
+        image: gauravkulkarni96/famsplit:latest
+        ports:
+          - "8000:8000"
+        depends_on:
+          - db
+   ```
+  
+2. run `docker-compose up`
+
+NOTE - If you name the file anything apart from `docker-compose.yml`, use command `docker-compose -f <filename> up`
 
 ## Supported APIs
 ### Create user
