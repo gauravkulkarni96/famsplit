@@ -5,12 +5,12 @@ services:
     image: mysql/mysql-server:5.7
     ports:
       - "3306:3306"
-    env_file:
-      - ./secrets/famsplit_mysql.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=joeydoesntsharefood
+      - MYSQL_DATABASE=famsplit
+      - MYSQL_ROOT_HOST=%
   web:
     image: gauravkulkarni96/famsplit:latest
-    volumes:
-      - .:/src/code/famsplit
     ports:
       - "8000:8000"
     depends_on:
