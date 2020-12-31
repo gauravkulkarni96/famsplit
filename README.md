@@ -28,6 +28,8 @@ The application is dockerized. Running it brings up 2 containers - application a
 
 NOTE - If you name the file anything apart from `docker-compose.yml`, use command `docker-compose -f <filename> up`
 
+> A default superuser `famAdmin` (Password - `root@123`) gets created automatically. This user can be used to login from admin dashboard.
+
 ## Supported APIs
 ### Create user
 ```
