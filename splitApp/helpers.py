@@ -144,7 +144,7 @@ def simplify_payments(balances, user):
     for group_user, balance in balances.items():
         if balance < 0:
             negative_queue.put((balance, [group_user, round(balance,2)]))
-        else:
+        elif balance > 0:
             positive_queue.put((-1*balance, [group_user, round(balance,2)]))
 
     payments = defaultdict(lambda:0)
